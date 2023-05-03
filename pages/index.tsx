@@ -1,3 +1,9 @@
+import Htag from '@/components/Htag/Htag';
+
 export default function Home() {
-  return <main>sasda</main>;
+  return (
+    <main>
+      <Htag tag="h1">text</Htag>
+    </main>
+  );
 }
