@@ -3,13 +3,14 @@ import Htag from '@/components/Htag/Htag';
 import Ptag from '@/components/Ptag/Ptag';
 import Rating from '@/components/Rating/Rating';
 import Tag from '@/components/Tag/Tag';
+import {withLayout} from '@/layout/Layout';
 import {useState} from 'react';
 
-export default function Home() {
+function Home() {
   const [rating, setRating] = useState<number>(4);
 
   return (
-    <main>
+    <>
       <Htag tag="h1">text</Htag>
       <Button appearance="primary" arrow="right">
         aqwewqe
@@ -34,6 +35,8 @@ export default function Home() {
         green
       </Tag>
       <Rating rating={rating} setRating={setRating} isEditable />
-    </main>
+    </>
   );
 }
+
+export default withLayout(Home);
