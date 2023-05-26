@@ -9,6 +9,15 @@
   --gray-light: #ebebeb;
 }
 
+* {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   color: var(--black);
   margin: 0;
