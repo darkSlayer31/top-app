@@ -1,0 +1,48 @@
+.title {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  align-items: baseline;
+  justify-items: left;
+}
+
+.hhTitle {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-items: flex-start;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.advantages {
+  margin-top: 45px;
+}
+
+.seo {
+  margin-bottom: 30px;
+}
+
+.seo h1 {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 35px;
+  margin: 0;
+}
+
+.seo h2 {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 30px;
+  margin: 0;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.seo h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  margin: 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}

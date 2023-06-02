@@ -1,6 +1,6 @@
 .wrapper {
   display: grid;
-  gap: 0 30px;
+  gap: 40px 30px;
   min-height: 100vh;
   grid-template:
     '. header header .' auto
@@ -35,10 +35,14 @@
   }
 
   .sidebar {
-    display: none;
+    display: none !important;
   }
 
   .header {
     display: block;
+  }
+
+  .body {
+    padding: 15px;
   }
 }
