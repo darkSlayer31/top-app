@@ -3,6 +3,8 @@ import Htag from '@/components/Htag/Htag';
 import Ptag from '@/components/Ptag/Ptag';
 import Rating from '@/components/Rating/Rating';
 import Tag from '@/components/Tag/Tag';
+import Input from '@/components/Input/Input';
+import Textarea from '@/components/Textarea/Textarea';
 import {withLayout} from '@/layout/Layout';
 import {GetStaticProps} from 'next';
 import {useState} from 'react';
@@ -38,11 +40,8 @@ function Home({menu}: HomeProps) {
         green
       </Tag>
       <Rating rating={rating} setRating={setRating} isEditable />
-      <ul>
-        {menu.map((m) => (
-          <li key={m._id.secondCategory}>{m._id.secondCategory}</li>
-        ))}
-      </ul>
+      <Input placeholder="test" />
+      <Textarea />
     </>
   );
 }
