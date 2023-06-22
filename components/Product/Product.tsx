@@ -93,10 +93,10 @@ const Product: FC<ProductProps> = ({product, ...props}) => {
           [styles.closed]: !isReviewOpened,
         })}>
         {product.reviews.map((item) => (
-          <>
-            <Review key={item._id} review={item} />
+          <div key={item._id}>
+            <Review review={item} />
             <Divider />
-          </>
+          </div>
         ))}
 
         <ReviewForm productId={product._id} />
