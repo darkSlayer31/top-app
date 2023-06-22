@@ -101,6 +101,10 @@
   line-height: 19px;
 }
 
+.rateTitle a {
+  color: var(--primary);
+}
+
 .reviewButton {
   margin-left: 20px;
 }
