@@ -12,7 +12,7 @@ import {IReviewForm, IReviewSentResponse} from './ReviewForm.interface';
 import axios from 'axios';
 import {API} from '@/helpers/api';
 
-const ReviewForm: FC<ReviewFormProps> = ({productId, className, ...props}) => {
+const ReviewForm: FC<ReviewFormProps> = ({productId, isOpened, className, ...props}) => {
   const {
     register,
     control,
@@ -35,7 +35,9 @@ const ReviewForm: FC<ReviewFormProps> = ({productId, className, ...props}) => {
         setError('Что-то пошло не так');
       }
     } catch (e) {
-      setError(e.message);
+      if (e instanceof Error) {
+        setError(e.message);
+      }
     }
   };
 
@@ -46,12 +48,14 @@ const ReviewForm: FC<ReviewFormProps> = ({productId, className, ...props}) => {
           {...register('name', {required: {value: true, message: 'Заполните имя'}})}
           placeholder="Имя"
           error={errors.name}
+          tabIndex={isOpened ? 0 : -1}
         />
         <Input
           {...register('title', {required: {value: true, message: 'Заполните заголовок'}})}
           className={styles.title}
           placeholder="Заголовок отзыва"
           error={errors.title}
+          tabIndex={isOpened ? 0 : -1}
         />
         <div className={styles.rating}>
           <span>Оценка:</span>
@@ -66,6 +70,7 @@ const ReviewForm: FC<ReviewFormProps> = ({productId, className, ...props}) => {
                 setRating={field.onChange}
                 ref={field.ref}
                 error={errors.rating}
+                tabIndex={isOpened ? 0 : -1}
               />
             )}
           />
@@ -75,9 +80,12 @@ const ReviewForm: FC<ReviewFormProps> = ({productId, className, ...props}) => {
           className={styles.description}
           placeholder="Текст отзыва"
           error={errors.description}
+          tabIndex={isOpened ? 0 : -1}
         />
         <div className={styles.submit}>
-          <Button appearance="primary">Отправить</Button>
+          <Button appearance="primary" tabIndex={isOpened ? 0 : -1}>
+            Отправить
+          </Button>
           <span className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
         </div>
       </div>
