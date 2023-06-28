@@ -113,7 +113,8 @@ const Product = motion(
               className={styles.reviewButton}
               appearance="ghost"
               arrow={isReviewOpened ? 'down' : 'right'}
-              onClick={() => setIsReviewOpened(!isReviewOpened)}>
+              onClick={() => setIsReviewOpened(!isReviewOpened)}
+              aria-expanded={isReviewOpened}>
               Читать отзывы
             </Button>
           </div>
