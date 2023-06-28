@@ -27,7 +27,7 @@ const TopPageComponent = ({products, page, firstCategory}: TopPageComoponentProp
       <div className={styles.title}>
         <Htag tag="h1">{page.title}</Htag>
         {products.length && (
-          <Tag color="gray" size="medium">
+          <Tag color="gray" size="medium" aria-label={products.length + 'элементов'}>
             {products.length}
           </Tag>
         )}

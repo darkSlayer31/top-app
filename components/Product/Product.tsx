@@ -43,17 +43,23 @@ const Product = motion(
           </div>
           <div className={styles.title}>{product.title}</div>
           <div className={styles.price}>
-            {priceRu(product.price)}
+            <span>
+              <span className="visualyHidden">цена</span>
+              {priceRu(product.price)}
+            </span>
             {product.oldPrice && (
               <Tag className={styles.oldPrice} size="small" color="green">
+                <span className="visualyHidden">скидка</span>
                 {priceRu(product.price - product.oldPrice)}
               </Tag>
             )}
           </div>
           <div className={styles.credit}>
+            <span className="visualyHidden">кредит</span>
             {priceRu(product.credit)}/<span className={styles.month}>мес</span>
           </div>
           <div className={styles.rating}>
+            <span className="visualyHidden">{'рейтинг' + (product.reviewAvg ?? product.initialRating)}</span>
             <Rating rating={product.reviewAvg ?? product.initialRating} />
           </div>
           <div className={styles.tags}>
@@ -63,8 +69,12 @@ const Product = motion(
               </Tag>
             ))}
           </div>
-          <div className={styles.priceTitle}>цена</div>
-          <div className={styles.creditTitle}>кредит</div>
+          <div className={styles.priceTitle} aria-hidden={true}>
+            цена
+          </div>
+          <div className={styles.creditTitle} aria-hidden={true}>
+            кредит
+          </div>
           <div className={styles.rateTitle}>
             <a href="#ref" onClick={scrollToReview}>
               {product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}

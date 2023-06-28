@@ -13,23 +13,32 @@ const Sort: FC<SortProps> = ({sort, setSort, className}) => {
 
   return (
     <div className={cn(styles.sort, className)}>
+      <div className={styles.sortName} id="sort">
+        Сортировка
+      </div>
       <button
+        id="rating"
         className={cn(styles.sortButton, {
           [styles.active]: sort === SortEnum.Rating,
         })}
         onClick={() => setSort(SortEnum.Rating)}
         onKeyDown={(e) => handleKey(e, SortEnum.Rating)}
-        tabIndex={0}>
+        tabIndex={0}
+        aria-pressed={sort === SortEnum.Rating}
+        aria-labelledby="sort rating">
         <SortIcon className={styles.sortIcon} />
         По рейтингу
       </button>
       <button
+        id="price"
         className={cn(styles.sortButton, {
           [styles.active]: sort === SortEnum.Price,
         })}
         onClick={() => setSort(SortEnum.Price)}
         onKeyDown={(e) => handleKey(e, SortEnum.Price)}
-        tabIndex={0}>
+        tabIndex={0}
+        aria-pressed={sort === SortEnum.Price}
+        aria-labelledby="sort price">
         <SortIcon className={styles.sortIcon} />
         По цене
       </button>
