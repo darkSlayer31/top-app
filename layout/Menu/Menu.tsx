@@ -2,7 +2,7 @@ import {KeyboardEvent, useContext, useState} from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
-import {motion, Variants} from 'framer-motion';
+import {motion, useReducedMotion, Variants} from 'framer-motion';
 import {AppContext} from '@/context/app.context';
 import {FirstLevelMenuItem, PageItem} from '@/interfaces/menu.interface';
 import styles from './Menu.module.css';
@@ -11,14 +11,17 @@ import {firstLevelMenu} from '@/helpers/helpers';
 const Menu = () => {
   const {menu, setMenu, firstCategory} = useContext(AppContext);
   const [announce, setAnnounce] = useState<'closed' | 'opened' | undefined>();
+  const shouldReduceMotion = useReducedMotion();
 
   const variants: Variants = {
     visible: {
       marginBottom: 20,
-      transition: {
-        when: 'beforeChildren',
-        staggerChildren: 0.1,
-      },
+      transition: shouldReduceMotion
+        ? {}
+        : {
+            when: 'beforeChildren',
+            staggerChildren: 0.1,
+          },
     },
     hidden: {
       marginBottom: 0,
@@ -31,7 +34,7 @@ const Menu = () => {
       height: 29,
     },
     hidden: {
-      opacity: 0,
+      opacity: shouldReduceMotion ? 1 : 0,
       height: 0,
     },
   };
