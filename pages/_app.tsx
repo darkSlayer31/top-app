@@ -13,7 +13,7 @@ const notoSans = Noto_Sans({
   subsets: ['latin', 'cyrillic'],
 });
 
-export default function App({Component, pageProps}: AppProps) {
+export default function App({Component, pageProps, router}: AppProps) {
   return (
     <>
       <style jsx global>{`
@@ -23,6 +23,8 @@ export default function App({Component, pageProps}: AppProps) {
       `}</style>
       <Head>
         <title>MyTop - мой лучший топ</title>
+        <meta property="og:url" content={process.env.NEXT_PUBLIC_DOMAIN + router.asPath} />
+        <meta property="og:locale" content="ru_RU" />
       </Head>
       <Component {...pageProps} />
     </>

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {GetStaticPropsContext, GetStaticProps, GetStaticPaths} from 'next';
 import {ParsedUrlQuery} from 'querystring';
+import Head from 'next/head';
 
 import {withLayout} from '@/layout/Layout';
 import {MenuItem} from '@/interfaces/menu.interface';
@@ -12,7 +13,18 @@ import TopPageComponent from '@/page-components/TopPageComponent/TopPageComponen
 import {API} from '@/helpers/api';
 
 function TopPage({products, firstCategory, page}: TopPageProps) {
-  return <TopPageComponent firstCategory={firstCategory} products={products} page={page} />;
+  return (
+    <>
+      <Head>
+        <title>{page.metaTitle}</title>
+        <meta name="description" content={page.metaDescription} />
+        <meta property="og:title" content={page.metaTitle} />
+        <meta property="og:description" content={page.metaDescription} />
+        <meta property="og:type" content="article" />
+      </Head>
+      <TopPageComponent firstCategory={firstCategory} products={products} page={page} />
+    </>
+  );
 }
 
 export default withLayout(TopPage);
