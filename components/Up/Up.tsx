@@ -21,7 +21,7 @@ const Up = () => {
 
   return (
     <motion.div animate={controls} initial={{opacity: 0}} className={styles.up}>
-      <ButtonIcon icon="up" appearance="primary" onClick={scrollToTop} />
+      <ButtonIcon icon="up" appearance="primary" onClick={scrollToTop} aria-label="Наверх" />
     </motion.div>
   );
 };
