@@ -4,7 +4,7 @@ import {DividerProps} from './Divider.props';
 import styles from './Divider.module.css';
 
 const Divider: FC<DividerProps> = ({className, ...props}) => {
-  return <hr className={cn(className, styles.hr)} />;
+  return <hr className={cn(className, styles.hr)} {...props} />;
 };
 
 export default Divider;
