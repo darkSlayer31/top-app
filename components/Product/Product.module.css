@@ -36,6 +36,9 @@
 
 .description {
   grid-column: start / end;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 15px;
 }
 
 .feature {
@@ -44,6 +47,8 @@
 
 .advBlock {
   grid-column: middle / end;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .actions {
@@ -87,12 +92,6 @@
   white-space: nowrap;
 }
 
-.description {
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 15px;
-}
-
 .priceTitle,
 .creditTitle,
 .rateTitle {
@@ -114,11 +113,6 @@
   font-size: 16px;
   line-height: 22px;
   margin-bottom: 5px;
-}
-
-.advBlock {
-  font-size: 16px;
-  line-height: 22px;
 }
 
 .advantages {
