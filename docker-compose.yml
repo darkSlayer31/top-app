@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    image: top-app-demo
+    image: ghcr.io/darkslayer31/top-app:main
     container_name: top-app-demo
     restart: always
     ports:
